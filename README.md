@@ -3,7 +3,7 @@
 Clone this repo to a new directory:
 
 ```bash
-git clone https://github.com/edgeworkscreative/stencil-electron-app-starter my-app
+git clone https://github.com/mitchellsimoens/stencil-electron-app-starter my-app
 cd my-app
 git remote rm origin
 ```
@@ -11,7 +11,7 @@ git remote rm origin
 and run:
 
 ```bash
-npm install
+npm ci
 npm start
 ```
 

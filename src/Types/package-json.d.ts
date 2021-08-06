@@ -1,44 +1,45 @@
 // from @stencil/core/dist/declarations
 export interface PackageJson {
-  name?: string;
-  productName?: string;
-  version?: string;
-  main?: string;
-  bin?: {
+  'name'?: string;
+  'productName'?: string;
+  'version'?: string;
+  'main'?: string;
+  'bin'?: {
     [key: string]: string;
   };
-  scripts?: {
+  'scripts'?: {
     [key: string]: string;
   };
-  bugs?: {
+  'bugs'?: {
     url: string;
     [key: string]: string;
   };
-  browser?: string;
-  module?: string;
+  'browser'?: string;
+  'module'?: string;
   'jsnext:main'?: string;
-  unpkg?: string;
-  collection?: string;
-  types?: string;
-  author?: string;
-  homepage?: string;
-  files?: string[];
+  'unpkg'?: string;
+  'collection'?: string;
+  'types'?: string;
+  'author'?: string;
+  'homepage'?: string;
+  'files'?: string[];
   ['dist-tags']: {
     latest: string;
   };
-  dependencies?: {
+  'dependencies'?: {
     [moduleId: string]: string;
   };
-  devDependencies?: {
+  'devDependencies'?: {
     [moduleId: string]: string;
   };
-  lazyDependencies?: {
+  'lazyDependencies'?: {
     [moduleId: string]: string;
   };
-  repository?: {
+  'repository'?: {
     type?: string;
     url?: string;
   };
-  
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [any: string]: any;
 }

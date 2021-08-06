@@ -1,147 +1,124 @@
-import '@ionic/core';
-import {Component, Listen, Prop, State} from '@stencil/core';
-import {Remote} from '../../Types/remote';
+import { Component, Listen, State, h } from '@stencil/core';
+import { JSX } from '@stencil/core/internal';
 
 @Component({
-  tag:      'app-root',
-  styleUrl: 'app-root.css'
+  tag: 'app-root',
+  styleUrl: 'app-root.css',
 })
 export class AppRoot {
-  @Prop({context: 'remote'}) private remote: Remote;
-  
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @State() applicationMenu: any = [
     {
-      label:   'Edit',
+      label: 'Edit',
       submenu: [
-        {role: 'undo'},
-        {role: 'redo'},
-        {type: 'separator'},
-        {role: 'cut'},
-        {role: 'copy'},
-        {role: 'paste'},
-        {role: 'pasteandmatchstyle'},
-        {role: 'delete'},
-        {role: 'selectall'}
-      ]
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+        { role: 'pasteandmatchstyle' },
+        { role: 'delete' },
+        { role: 'selectall' },
+      ],
     },
     {
-      label:   'View',
+      label: 'View',
       submenu: [
-        {role: 'reload'},
-        {role: 'forcereload'},
-        {role: 'toggledevtools'},
-        {type: 'separator'},
-        {role: 'resetzoom'},
-        {role: 'zoomin'},
-        {role: 'zoomout'},
-        {type: 'separator'},
-        {role: 'togglefullscreen'}
-      ]
+        { role: 'reload' },
+        { role: 'forcereload' },
+        { role: 'toggledevtools' },
+        { type: 'separator' },
+        { role: 'resetzoom' },
+        { role: 'zoomin' },
+        { role: 'zoomout' },
+        { type: 'separator' },
+        { role: 'togglefullscreen' },
+      ],
     },
     {
-      role:    'window',
+      role: 'window',
       submenu: [
-        {role: 'minimize'},
-        {role: 'close'},
+        { role: 'minimize' },
+        { role: 'close' },
         {
           label: 'Go Back',
-          click() {
+          click(): void {
             window.history.back();
-          }
+          },
         },
         {
           label: 'Go Forward',
-          click() {
+          click(): void {
             window.history.forward();
-          }
-        }
-      ]
+          },
+        },
+      ],
     },
     {
-      role:    'help',
+      role: 'help',
       submenu: [
         {
           label: 'Learn More',
-          click() { require('electron').shell.openExternal('https://electronjs.org') }
-        }
-      ]
-    }
+          click(): void {
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            require('electron').shell.openExternal('https://electronjs.org');
+          },
+        },
+      ],
+    },
   ];
-  
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @State() contextMenu: any = [
     {
       label: 'Item 1',
-      click() {
+      click(): void {
         console.log('item 1 clicked');
-      }
+      },
     },
     {
       label: 'Item 2',
-      click() {
+      click(): void {
         console.log('item 2 clicked');
-      }
+      },
     },
     {
       label: 'Go Back',
-      click() {
+      click(): void {
         window.history.back();
-      }
+      },
     },
     {
       label: 'Go Forward',
-      click() {
+      click(): void {
         window.history.forward();
-      }
+      },
     },
     {
       label: 'Reload',
-      click() {
+      click(): void {
         window.location.reload();
-      }
-    }
+      },
+    },
   ];
-  
-  componentWillLoad() {
-    // apply the application menu
-    const menu = this.remote.menu.buildFromTemplate(this.applicationMenu);
-    this.remote.menu.setApplicationMenu(menu);
-    
-    // store example
-    this.remote.store.set('user_id', Math.random());
-    console.log('get test user_id', this.remote.store.get('user_id'));
-    console.log('store path', this.remote.store.path);
-    
-    console.log('os', this.remote.os.platform());
-    console.log('free memory', this.remote.os.freemem());
-    console.log('home dir', this.remote.os.homedir());
-  }
-  
+
   @Listen('window:visibilitychange')
-  onVisibilityChange() {
+  onVisibilityChange(): void {
     if (document.hidden) {
-      console.log("app has been minimized");
+      console.log('app has been minimized');
     } else {
       console.log("and we're back again");
     }
   }
-  
+
   @Listen('window:contextmenu')
-  openContextMenu(e) {
+  openContextMenu(e: CustomEvent): void {
     e.preventDefault();
-    const menu = this.remote.menu.buildFromTemplate(this.contextMenu);
-    menu.popup({});
+    console.log('implement');
   }
-  
-  render() {
-    return (
-      <ion-app class={'md'}>
-        <ion-router useHash={false} root="/">
-          <ion-route url="/" component="app-home"/>
-          <ion-route url="/profile/:name" component="app-profile"/>
-        </ion-router>
-        <ion-nav/>
-        <ion-router-outlet animated={false}/>
-      </ion-app>
-    );
+
+  render(): JSX.Element {
+    return <div>Root</div>;
   }
 }

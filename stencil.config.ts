@@ -1,14 +1,24 @@
-import {Config} from '@stencil/core';
+import { Config } from '@stencil/core';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export const config: Config = {
-  globalScript:  'src/global/globalScript.ts',
-  globalStyle:   'src/global/app.css',
+  globalStyle: 'src/global/global.css',
   outputTargets: [
     {
-      type: 'www'
-    }
+      type: 'dist-custom-elements-bundle',
+    },
+    {
+      type: 'docs-readme',
+    },
+    {
+      type: 'www',
+      serviceWorker: null, // disable service workers
+    },
   ],
-  devServer:     {
-    openBrowser: false
-  }
+  devServer: {
+    openBrowser: false,
+  },
+  rollupPlugins: {
+    after: [nodePolyfills()],
+  },
 };
