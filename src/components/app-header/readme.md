@@ -9,14 +9,21 @@
 
 ### Used by
 
- - [app-home](../app-home)
- - [app-profile](../app-profile)
+ - [about-page](../../pages/about-page)
+ - [home-page](../../pages/home-page)
+ - [not-found-page](../../pages/not-found-page)
+
+### Depends on
+
+- stencil-route-link
 
 ### Graph
 ```mermaid
 graph TD;
-  app-home --> app-header
-  app-profile --> app-header
+  app-header --> stencil-route-link
+  about-page --> app-header
+  home-page --> app-header
+  not-found-page --> app-header
   style app-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

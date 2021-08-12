@@ -1,4 +1,4 @@
-# app-profile
+# not-found-page
 
 
 
@@ -9,13 +9,14 @@
 
 ### Depends on
 
-- [app-header](../app-header)
+- [app-header](../../components/app-header)
 
 ### Graph
 ```mermaid
 graph TD;
-  app-profile --> app-header
-  style app-profile fill:#f9f,stroke:#333,stroke-width:4px
+  not-found-page --> app-header
+  app-header --> stencil-route-link
+  style not-found-page fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -1,4 +1,4 @@
-# app-home
+# about-page
 
 
 
@@ -9,13 +9,14 @@
 
 ### Depends on
 
-- [app-header](../app-header)
+- [app-header](../../components/app-header)
 
 ### Graph
 ```mermaid
 graph TD;
-  app-home --> app-header
-  style app-home fill:#f9f,stroke:#333,stroke-width:4px
+  about-page --> app-header
+  app-header --> stencil-route-link
+  style about-page fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -2,15 +2,14 @@ import { Component, Host, h } from '@stencil/core';
 import { JSX } from '@stencil/core/internal';
 
 @Component({
-  tag: 'app-profile',
-  styleUrl: 'app-profile.css',
+  tag: 'home-page',
 })
-export class AppProfile {
+export class HomePage {
   render(): JSX.Element {
     return (
       <Host>
         <app-header />
-        <div>Profile</div>
+        <div>Home Page Here</div>
       </Host>
     );
   }

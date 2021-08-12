@@ -1,8 +1,10 @@
 import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export const config: Config = {
-  globalStyle: 'src/global/global.css',
+  globalScript: 'src/global/global.ts',
+  globalStyle: 'src/global/global.scss',
   outputTargets: [
     {
       type: 'dist-custom-elements-bundle',
@@ -18,6 +20,11 @@ export const config: Config = {
   devServer: {
     openBrowser: false,
   },
+  plugins: [
+    sass({
+      injectGlobalPaths: ['src/global/variables.scss', 'src/global/mixins.scss'],
+    }),
+  ],
   rollupPlugins: {
     after: [nodePolyfills()],
   },

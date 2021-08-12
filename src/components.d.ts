@@ -6,35 +6,29 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AboutPage {
+    }
     interface AppHeader {
-    }
-    interface AppHome {
-    }
-    interface AppProfile {
     }
     interface AppRoot {
     }
-    interface HeaderPopover {
+    interface HomePage {
+    }
+    interface NotFoundPage {
     }
 }
 declare global {
+    interface HTMLAboutPageElement extends Components.AboutPage, HTMLStencilElement {
+    }
+    var HTMLAboutPageElement: {
+        prototype: HTMLAboutPageElement;
+        new (): HTMLAboutPageElement;
+    };
     interface HTMLAppHeaderElement extends Components.AppHeader, HTMLStencilElement {
     }
     var HTMLAppHeaderElement: {
         prototype: HTMLAppHeaderElement;
         new (): HTMLAppHeaderElement;
-    };
-    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
-    }
-    var HTMLAppHomeElement: {
-        prototype: HTMLAppHomeElement;
-        new (): HTMLAppHomeElement;
-    };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
-    }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
     };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
@@ -42,48 +36,54 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
-    interface HTMLHeaderPopoverElement extends Components.HeaderPopover, HTMLStencilElement {
+    interface HTMLHomePageElement extends Components.HomePage, HTMLStencilElement {
     }
-    var HTMLHeaderPopoverElement: {
-        prototype: HTMLHeaderPopoverElement;
-        new (): HTMLHeaderPopoverElement;
+    var HTMLHomePageElement: {
+        prototype: HTMLHomePageElement;
+        new (): HTMLHomePageElement;
+    };
+    interface HTMLNotFoundPageElement extends Components.NotFoundPage, HTMLStencilElement {
+    }
+    var HTMLNotFoundPageElement: {
+        prototype: HTMLNotFoundPageElement;
+        new (): HTMLNotFoundPageElement;
     };
     interface HTMLElementTagNameMap {
+        "about-page": HTMLAboutPageElement;
         "app-header": HTMLAppHeaderElement;
-        "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
-        "header-popover": HTMLHeaderPopoverElement;
+        "home-page": HTMLHomePageElement;
+        "not-found-page": HTMLNotFoundPageElement;
     }
 }
 declare namespace LocalJSX {
+    interface AboutPage {
+    }
     interface AppHeader {
-    }
-    interface AppHome {
-    }
-    interface AppProfile {
     }
     interface AppRoot {
     }
-    interface HeaderPopover {
+    interface HomePage {
+    }
+    interface NotFoundPage {
     }
     interface IntrinsicElements {
+        "about-page": AboutPage;
         "app-header": AppHeader;
-        "app-home": AppHome;
-        "app-profile": AppProfile;
         "app-root": AppRoot;
-        "header-popover": HeaderPopover;
+        "home-page": HomePage;
+        "not-found-page": NotFoundPage;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "about-page": LocalJSX.AboutPage & JSXBase.HTMLAttributes<HTMLAboutPageElement>;
             "app-header": LocalJSX.AppHeader & JSXBase.HTMLAttributes<HTMLAppHeaderElement>;
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-            "header-popover": LocalJSX.HeaderPopover & JSXBase.HTMLAttributes<HTMLHeaderPopoverElement>;
+            "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
+            "not-found-page": LocalJSX.NotFoundPage & JSXBase.HTMLAttributes<HTMLNotFoundPageElement>;
         }
     }
 }
