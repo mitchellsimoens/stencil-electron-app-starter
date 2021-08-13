@@ -46,8 +46,13 @@ class Application {
   }
 
   private onWindowAllClosed(): void {
-    // TODO make a setting?
-    if (process.platform !== 'darwin') {
+    const store = getStore();
+
+    if (process.platform !== 'darwin' || store.get('quitOnClose') === true) {
+      /**
+       * On macOS, opt-in to quit on closing the main window.
+       * Else, always quit the app.
+       */
       app.quit();
     }
   }

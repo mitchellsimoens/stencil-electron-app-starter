@@ -1,8 +1,16 @@
-import { BrowserWindow, BrowserWindowConstructorOptions } from 'electron';
+import { BrowserWindow, BrowserWindowConstructorOptions, Rectangle } from 'electron';
+import { getStore } from './store';
 
-// TODO check electron-store for size/position
-export const openWindow = (_name: string, options: BrowserWindowConstructorOptions): BrowserWindow => {
-  return new BrowserWindow({
+export const openWindow = (name: string, options: BrowserWindowConstructorOptions): BrowserWindow => {
+  const storeKey = `$window.bounds.${name}`;
+  const store = getStore();
+  const bounds: Rectangle = store.get(storeKey) as Rectangle;
+  const win = new BrowserWindow({
     ...options,
+    ...bounds,
   });
+
+  win.on('close', (): void => store.set(storeKey, win.getBounds()));
+
+  return win;
 };
