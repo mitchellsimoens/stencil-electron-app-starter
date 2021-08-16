@@ -22,11 +22,11 @@ sudo docker run --rm -ti --env ELECTRON_CACHE="/root/.cache/electron"  --env ELE
 ```
 
 ```bash
-./node_modules/.bin/electron-builder --win
+npx electron-builder --win
 ```
 
 ```bash
-./node_modules/.bin/electron-builder --linux deb
+npx electron-builder --linux deb
 ```
 
 ### Thanks to
