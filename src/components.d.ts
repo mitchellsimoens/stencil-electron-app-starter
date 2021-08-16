@@ -10,7 +10,19 @@ export namespace Components {
     }
     interface AppHeader {
     }
+    interface AppNav {
+    }
     interface AppRoot {
+    }
+    interface FaIcon {
+        /**
+          * The icon name. If the name does not start with "fa-", it will be prefixed with it.
+         */
+        "iconName": string;
+        /**
+          * Which style of icon set to load from.
+         */
+        "iconStyle": 'fa' | 'fas';
     }
     interface HomePage {
     }
@@ -30,11 +42,23 @@ declare global {
         prototype: HTMLAppHeaderElement;
         new (): HTMLAppHeaderElement;
     };
+    interface HTMLAppNavElement extends Components.AppNav, HTMLStencilElement {
+    }
+    var HTMLAppNavElement: {
+        prototype: HTMLAppNavElement;
+        new (): HTMLAppNavElement;
+    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLFaIconElement extends Components.FaIcon, HTMLStencilElement {
+    }
+    var HTMLFaIconElement: {
+        prototype: HTMLFaIconElement;
+        new (): HTMLFaIconElement;
     };
     interface HTMLHomePageElement extends Components.HomePage, HTMLStencilElement {
     }
@@ -51,7 +75,9 @@ declare global {
     interface HTMLElementTagNameMap {
         "about-page": HTMLAboutPageElement;
         "app-header": HTMLAppHeaderElement;
+        "app-nav": HTMLAppNavElement;
         "app-root": HTMLAppRootElement;
+        "fa-icon": HTMLFaIconElement;
         "home-page": HTMLHomePageElement;
         "not-found-page": HTMLNotFoundPageElement;
     }
@@ -61,7 +87,19 @@ declare namespace LocalJSX {
     }
     interface AppHeader {
     }
+    interface AppNav {
+    }
     interface AppRoot {
+    }
+    interface FaIcon {
+        /**
+          * The icon name. If the name does not start with "fa-", it will be prefixed with it.
+         */
+        "iconName"?: string;
+        /**
+          * Which style of icon set to load from.
+         */
+        "iconStyle"?: 'fa' | 'fas';
     }
     interface HomePage {
     }
@@ -70,7 +108,9 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "about-page": AboutPage;
         "app-header": AppHeader;
+        "app-nav": AppNav;
         "app-root": AppRoot;
+        "fa-icon": FaIcon;
         "home-page": HomePage;
         "not-found-page": NotFoundPage;
     }
@@ -81,7 +121,9 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "about-page": LocalJSX.AboutPage & JSXBase.HTMLAttributes<HTMLAboutPageElement>;
             "app-header": LocalJSX.AppHeader & JSXBase.HTMLAttributes<HTMLAppHeaderElement>;
+            "app-nav": LocalJSX.AppNav & JSXBase.HTMLAttributes<HTMLAppNavElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "fa-icon": LocalJSX.FaIcon & JSXBase.HTMLAttributes<HTMLFaIconElement>;
             "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
             "not-found-page": LocalJSX.NotFoundPage & JSXBase.HTMLAttributes<HTMLNotFoundPageElement>;
         }

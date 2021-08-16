@@ -12,13 +12,18 @@
   <link href="/build/app.css" rel="stylesheet">
   <script type="module" src="/build/app.esm.js"></script>
   <script nomodule src="/build/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/fontawesome/css/all.css">
   <link rel="apple-touch-icon" href="/assets/icon/icon.png">
   <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
   <link rel="manifest" href="/manifest.json">
 </head>
-<body>
+<body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
 
-  <app-root></app-root>
+  <app-header class="bg-gray-800 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0"></app-header>
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <app-nav class="bg-gray-800 shadow-xl h-16 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48"></app-nav>
+    <app-root class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5"></app-root>
+  </div>
 
 </body>
 </html>

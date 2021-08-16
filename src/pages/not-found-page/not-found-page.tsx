@@ -8,7 +8,6 @@ export class NotFoundPage {
   render(): JSX.Element {
     return (
       <Host>
-        <app-header />
         <div>Not found</div>
       </Host>
     );

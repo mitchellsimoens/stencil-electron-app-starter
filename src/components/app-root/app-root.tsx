@@ -3,6 +3,7 @@ import { JSX } from '@stencil/core/internal';
 
 @Component({
   tag: 'app-root',
+  shadow: true,
 })
 export class AppRoot {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -119,13 +120,15 @@ export class AppRoot {
 
   render(): JSX.Element {
     return (
-      <stencil-router>
-        <stencil-route-switch scrollTopOffset={0}>
-          <stencil-route url="/" component="home-page" exact={true} />
-          <stencil-route url="/about" component="about-page" exact={true} />
-          <stencil-route component="not-found-page" />
-        </stencil-route-switch>
-      </stencil-router>
+      <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
+        <stencil-router>
+          <stencil-route-switch scrollTopOffset={0}>
+            <stencil-route url="/" component="home-page" exact={true} />
+            <stencil-route url="/about" component="about-page" exact={true} />
+            <stencil-route component="not-found-page" />
+          </stencil-route-switch>
+        </stencil-router>
+      </div>
     );
   }
 }

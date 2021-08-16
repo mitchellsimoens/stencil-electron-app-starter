@@ -8,7 +8,6 @@ export class AboutPage {
   render(): JSX.Element {
     return (
       <Host>
-        <app-header />
         <div>About Page Here</div>
       </Host>
     );
