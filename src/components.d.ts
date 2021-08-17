@@ -26,6 +26,8 @@ export namespace Components {
     }
     interface HomePage {
     }
+    interface IpcForm {
+    }
     interface NotFoundPage {
     }
 }
@@ -66,6 +68,12 @@ declare global {
         prototype: HTMLHomePageElement;
         new (): HTMLHomePageElement;
     };
+    interface HTMLIpcFormElement extends Components.IpcForm, HTMLStencilElement {
+    }
+    var HTMLIpcFormElement: {
+        prototype: HTMLIpcFormElement;
+        new (): HTMLIpcFormElement;
+    };
     interface HTMLNotFoundPageElement extends Components.NotFoundPage, HTMLStencilElement {
     }
     var HTMLNotFoundPageElement: {
@@ -79,6 +87,7 @@ declare global {
         "app-root": HTMLAppRootElement;
         "fa-icon": HTMLFaIconElement;
         "home-page": HTMLHomePageElement;
+        "ipc-form": HTMLIpcFormElement;
         "not-found-page": HTMLNotFoundPageElement;
     }
 }
@@ -103,6 +112,8 @@ declare namespace LocalJSX {
     }
     interface HomePage {
     }
+    interface IpcForm {
+    }
     interface NotFoundPage {
     }
     interface IntrinsicElements {
@@ -112,6 +123,7 @@ declare namespace LocalJSX {
         "app-root": AppRoot;
         "fa-icon": FaIcon;
         "home-page": HomePage;
+        "ipc-form": IpcForm;
         "not-found-page": NotFoundPage;
     }
 }
@@ -125,6 +137,7 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "fa-icon": LocalJSX.FaIcon & JSXBase.HTMLAttributes<HTMLFaIconElement>;
             "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
+            "ipc-form": LocalJSX.IpcForm & JSXBase.HTMLAttributes<HTMLIpcFormElement>;
             "not-found-page": LocalJSX.NotFoundPage & JSXBase.HTMLAttributes<HTMLNotFoundPageElement>;
         }
     }

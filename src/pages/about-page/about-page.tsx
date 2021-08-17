@@ -9,6 +9,7 @@ export class AboutPage {
     return (
       <Host>
         <div>About Page Here</div>
+        <ipc-form />
       </Host>
     );
   }

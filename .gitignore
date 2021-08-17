@@ -25,7 +25,8 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 .env
 
-Electron/*.js
+Electron/**/*.js
+!Electron/window-preload.js
 
 test/Stencil Electron Starter-win32-x64/
 

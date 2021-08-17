@@ -1,4 +1,5 @@
-import { BrowserWindow, BrowserWindowConstructorOptions, Rectangle } from 'electron';
+import { BrowserWindow, BrowserWindowConstructorOptions, Rectangle, app } from 'electron';
+import { join } from 'path';
 import { getStore } from './store';
 
 export const openWindow = (name: string, options: BrowserWindowConstructorOptions): BrowserWindow => {
@@ -8,6 +9,9 @@ export const openWindow = (name: string, options: BrowserWindowConstructorOption
   const win = new BrowserWindow({
     ...options,
     ...bounds,
+    webPreferences: {
+      preload: join(app.getAppPath(), '/window-preload.js'),
+    },
   });
 
   win.on('close', (): void => store.set(storeKey, win.getBounds()));

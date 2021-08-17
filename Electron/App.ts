@@ -5,6 +5,8 @@ import { PackageJson } from '../src/Types/package-json';
 import { openWindow } from './openWindow';
 import { getStore } from './store';
 
+import './actions/Foo';
+
 // required to use require() here for some reason
 const serve = require('electron-serve');
 const path = require('path');
